@@ -1,39 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   file.c                                             :+:      :+:    :+:   */
+/*   free_data.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mkoyamba <mkoyamba@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/26 12:33:54 by mkoyamba          #+#    #+#             */
-/*   Updated: 2024/11/26 17:56:55 by mkoyamba         ###   ########.fr       */
+/*   Created: 2024/11/27 13:46:35 by mkoyamba          #+#    #+#             */
+/*   Updated: 2024/11/29 11:15:23 by mkoyamba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/lemin.h"
 
-char	**read_file(int fd)
+int	free_rooms(t_data *data)
 {
-	char	*result;
-	char	*trash;
-	char	buf[10001];
-	ssize_t	rd;
-	char	**to_return;
+	int	n;
 
-	result = ft_strdup("");
-	if (!result)
-		return (NULL);
-	rd = 10000;
-	while (rd == 10000 || !result)
+	n = 0;
+	while (data->rooms[n])
 	{
-		rd = read(fd, buf, 10000);
-		buf[rd] = '\0';
-		trash = result;
-		result = ft_strjoin(result, buf);
-		free(trash);
+		if (data->rooms[n] && data->rooms[n]->name)
+			free(data->rooms[n]->name);
+		if (data->rooms[n])
+			free(data->rooms[n]);
+		n++;
 	}
-	to_return = split_file(result, '\n');
-	if (result)
-		free(result);
-	return (to_return);
+	free(data->rooms);
+	return (1);
 }

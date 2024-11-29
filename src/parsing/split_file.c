@@ -6,7 +6,7 @@
 /*   By: mkoyamba <mkoyamba@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/26 12:35:35 by mkoyamba          #+#    #+#             */
-/*   Updated: 2024/11/26 12:35:50 by mkoyamba         ###   ########.fr       */
+/*   Updated: 2024/11/26 17:58:10 by mkoyamba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,6 +93,8 @@ char	**split_file(char *s, char c)
 	int		n;
 	int		a;
 
+	if (!s)
+		return (NULL);
 	result = malloc((mk_word(s, c) + 1) * sizeof(char *));
 	if (!result)
 		return (NULL);

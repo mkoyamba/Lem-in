@@ -6,7 +6,7 @@
 #    By: mkoyamba <mkoyamba@student.s19.be>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/09/05 12:29:55 by mkoyamba          #+#    #+#              #
-#    Updated: 2024/11/26 12:55:40 by mkoyamba         ###   ########.fr        #
+#    Updated: 2024/11/29 12:19:46 by mkoyamba         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,6 +27,9 @@ SRC +=\
 	file.c\
 	parsing.c\
 	split_file.c\
+	free_data.c\
+	gathering_data.c\
+	print.c\
 
 # exec
 SRC +=\
@@ -64,7 +67,7 @@ clean:
 fclean: clean
 	@make -C lib/libft fclean
 	@rm -f $(NAME)
-	@printf "\e[0;31m[cub3d deleted]\n\e[0;m"
+	@printf "\e[0;31m[$(NAME) deleted]\n\e[0;m"
 
 re: fclean all
 
