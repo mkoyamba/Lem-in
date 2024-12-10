@@ -6,7 +6,7 @@
 /*   By: mkoyamba <mkoyamba@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/05 13:53:32 by mkoyamba          #+#    #+#             */
-/*   Updated: 2024/11/26 12:57:46 by mkoyamba         ###   ########.fr       */
+/*   Updated: 2024/12/01 12:34:25 by mkoyamba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,5 +39,8 @@ int	main(int argc, char **argv)
 	close(fd);
 	if (!data.file || parsing(&data))
 		error_out("Incorrect config file", 1);
+	solution(&data);
+	free_links(&data);
+	free_rooms(&data);
 	return (0);
 }

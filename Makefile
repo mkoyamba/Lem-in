@@ -6,7 +6,7 @@
 #    By: mkoyamba <mkoyamba@student.s19.be>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/09/05 12:29:55 by mkoyamba          #+#    #+#              #
-#    Updated: 2024/11/29 12:19:46 by mkoyamba         ###   ########.fr        #
+#    Updated: 2024/11/30 14:14:42 by mkoyamba         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,15 +25,17 @@ SRC = main.c\
 # parsing
 SRC +=\
 	file.c\
-	parsing.c\
-	split_file.c\
 	free_data.c\
 	gathering_data.c\
+	links.c\
+	parsing_tools.c\
+	parsing.c\
 	print.c\
+	split_file.c\
 
 # exec
 SRC +=\
-	
+	exec.c\
 
 #          ----------========== {     OBJS     } ==========----------
 

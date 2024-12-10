@@ -1,39 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   file.c                                             :+:      :+:    :+:   */
+/*   exec.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mkoyamba <mkoyamba@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/26 12:33:54 by mkoyamba          #+#    #+#             */
-/*   Updated: 2024/11/30 14:41:37 by mkoyamba         ###   ########.fr       */
+/*   Created: 2024/11/30 14:13:17 by mkoyamba          #+#    #+#             */
+/*   Updated: 2024/11/30 14:51:33 by mkoyamba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/lemin.h"
 
-char	**read_file(int fd)
+int	solution(t_data *data)
 {
-	char	*result;
-	char	*trash;
-	char	buf[10001];
-	ssize_t	rd;
-	char	**to_return;
-
-	result = ft_strdup("");
-	if (!result)
-		return (NULL);
-	rd = 10000;
-	while (rd == 10000 && result)
-	{
-		rd = read(fd, buf, 10000);
-		buf[rd] = '\0';
-		trash = result;
-		result = ft_strjoin(result, buf);
-		free(trash);
-	}
-	to_return = split_file(result, '\n');
-	if (result)
-		free(result);
-	return (to_return);
+	print_rooms(data);
+	return (0);
 }

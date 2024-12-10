@@ -6,7 +6,7 @@
 /*   By: mkoyamba <mkoyamba@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/27 13:31:17 by mkoyamba          #+#    #+#             */
-/*   Updated: 2024/11/29 12:18:55 by mkoyamba         ###   ########.fr       */
+/*   Updated: 2024/11/30 14:17:16 by mkoyamba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,8 @@ int	add_room(char **line, t_data *data, int index)
 	data->rooms[index]->name = ft_substr(*line, 0, n);
 	if (!data->rooms[index]->name)
 		return (1);
+	if (add_numbers(data, index, ++infos))
+		return (1);
 	return (0);
 }
 
@@ -92,6 +94,7 @@ int	add_data(t_data *data)
 {
 	if (add_rooms(data))
 		return (1);
-	print_rooms(data);
+	if (add_links(data))
+		return (free_rooms(data));
 	return (0);
 }
